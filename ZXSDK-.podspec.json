@@ -1,7 +1,7 @@
 {
   "name": "ZXSDK-NOIDFA",
   "version": "3.0.2",
-  "summary": "ZXSDK-NOIDFA CocoaPods 集成库",
+  "summary": "ZXSDK-NOIDFA CocoaPods 依赖",
   "license": {
     "type": "MIT"
   },
