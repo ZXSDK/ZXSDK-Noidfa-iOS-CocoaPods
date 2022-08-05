@@ -15,7 +15,7 @@
   },
   "static_framework": true,
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
   "ios": {
     "vendored_frameworks": "ZXSDK-Noidfa.framework",
