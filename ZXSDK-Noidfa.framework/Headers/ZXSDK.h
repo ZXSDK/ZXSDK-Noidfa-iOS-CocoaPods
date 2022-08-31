@@ -3,7 +3,7 @@
 //  ZXSDK
 //
 //  Created by zx on 2021-03-10.
-//  ZXSDK-Version: 3.0.2.11578
+//  ZXSDK-Version: 3.1.0.14559
 
 #import <Foundation/Foundation.h>
 
@@ -20,9 +20,10 @@ class ZXSDK; char * k##name##_mod ZXSDKStoreDATA(ZXSDKMods) = ""#value"";
 
 @class ZXSDKResultModel;
 typedef void (^ZXSDKCallback)(ZXSDKResultModel *_Nullable model, NSError *_Nullable error);
-typedef void (^ZXSDKUAIDCallback)(NSString *_Nullable uaid, NSError *_Nullable error);
+typedef void (^ZXSDKSAIDCallback)(NSString *_Nullable said, NSError *_Nullable error);
 typedef void (^ZXSDKAidInfoCallback)(NSDictionary *_Nullable res, NSError *_Nullable error);
 typedef void (^ZXSDKVerifyCallback)(BOOL success, NSError *_Nullable error);
+typedef void (^ZXSDKAuthTokenCallback)(NSString *_Nullable token, NSError *_Nullable error);
 
 @interface ZXSDKResultModel : NSObject
 @property (nonatomic, copy, nonnull) NSString *zxid;
@@ -35,18 +36,21 @@ typedef void (^ZXSDKVerifyCallback)(BOOL success, NSError *_Nullable error);
 
 @protocol ZXSDKProtocol <NSObject>
 
-/// 获取UAID
+/// 获取SAID
 /// @param accessKeyId 通过管理后台申请分配的密钥标识
 /// @param signature 信息签名字符串，参考签名方式。
 /// @param signatureMethod 信息签名方法，目前固定为 HMAC-SHA256 。
 /// @param signatureNonce 64 字节以内的随机串，用于防止重放攻击，每次请求 必须提供不同的值。
 /// @param timestamp UTC时间戳，从UTC1970年1月1日0时0分0秒起至现在 的总秒数。如 1632634877
-- (void)getUAIDWithAccessKeyId:(NSString *_Nonnull)accessKeyId
+- (void)getSAIDWithAccessKeyId:(NSString *_Nonnull)accessKeyId
                      signature:(NSString *_Nonnull)signature
                signatureMethod:(NSString *_Nonnull)signatureMethod
                 signatureNonce:(NSString *_Nonnull)signatureNonce
                      timestamp:(NSString *_Nonnull)timestamp
-                      callback:(ZXSDKUAIDCallback _Nonnull)callback;
+                      callback:(ZXSDKSAIDCallback _Nonnull)callback;
+
+/// 获取预授权token
+- (void)getAuthToken:(ZXSDKAuthTokenCallback _Nonnull)callback;
 
 /// 获取卓信id
 - (void)getZXID:(ZXSDKCallback _Nonnull)callback;
@@ -80,18 +84,21 @@ typedef void (^ZXSDKVerifyCallback)(BOOL success, NSError *_Nullable error);
 /// 获取卓信id
 + (void)getZXID:(ZXSDKCallback _Nonnull)callback;
 
-/// 获取UAID
+/// 获取SAID
 /// @param accessKeyId 通过管理后台申请分配的密钥标识
 /// @param signature 信息签名字符串，参考签名方式。
 /// @param signatureMethod 信息签名方法，目前固定为 HMAC-SHA256 。
 /// @param signatureNonce 64 字节以内的随机串，用于防止重放攻击，每次请求 必须提供不同的值。
 /// @param timestamp UTC时间戳，从UTC1970年1月1日0时0分0秒起至现在 的总秒数。如 1632634877
-+ (void)getUAIDWithAccessKeyId:(NSString *_Nonnull)accessKeyId
++ (void)getSAIDWithAccessKeyId:(NSString *_Nonnull)accessKeyId
                      signature:(NSString *_Nonnull)signature
                signatureMethod:(NSString *_Nonnull)signatureMethod
                 signatureNonce:(NSString *_Nonnull)signatureNonce
                      timestamp:(NSString *_Nonnull)timestamp
-                      callback:(ZXSDKUAIDCallback _Nonnull)callback;
+                      callback:(ZXSDKSAIDCallback _Nonnull)callback;
+
+/// 获取预授权token
++ (void)getAuthToken:(ZXSDKAuthTokenCallback _Nonnull)callback;
 
 /// 获取设备对应Tag
 + (void)getTag:(ZXSDKAidInfoCallback _Nonnull)callback;
