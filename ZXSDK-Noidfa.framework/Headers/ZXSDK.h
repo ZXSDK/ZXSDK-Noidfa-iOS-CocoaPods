@@ -3,7 +3,7 @@
 //  ZXSDK
 //
 //  Created by zx on 2021-03-10.
-//  ZXSDK-Version: 3.1.0.14681
+//  ZXSDK-Version: 3.1.1.15018
 
 #import <Foundation/Foundation.h>
 
@@ -122,4 +122,7 @@ typedef void (^ZXSDKAuthTokenCallback)(NSString *_Nullable token, NSError *_Null
 
 /// 服务商使用, 普通开发不建议使用
 + (id<ZXSDKProtocol>_Nullable)initWithAppId:(NSString *_Nonnull)appId;
+
+/// 服务商调用 需要在`load`方法中注册服务商的APPID
++ (void)registerAppId:(NSString *_Nonnull)appId;
 @end
