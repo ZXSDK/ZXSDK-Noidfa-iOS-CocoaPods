@@ -3,7 +3,7 @@
 //  ZXSDK
 //
 //  Created by zx on 2021-03-10.
-//  ZXSDK-Version: 3.1.1.15018
+//  ZXSDK-Version: 3.2.0.16519
 
 #import <Foundation/Foundation.h>
 
@@ -28,6 +28,7 @@ typedef void (^ZXSDKAuthTokenCallback)(NSString *_Nullable token, NSError *_Null
 @interface ZXSDKResultModel : NSObject
 @property (nonatomic, copy, nonnull) NSString *zxid;
 @property (nonatomic, copy, nonnull) NSString *expireTime;
+@property (nonatomic, copy, nullable) NSString *openid;
 @property (nonatomic, copy, nullable) NSArray *tags;
 
 @property (nonatomic, copy, nullable) NSString *aaid;
