@@ -3,7 +3,7 @@
 //  ZXSDK
 //
 //  Created by zx on 2021-03-10.
-//  ZXSDK-Version: 3.2.4.25802
+//  ZXSDK-Version: 3.2.5.39379
 
 #import <Foundation/Foundation.h>
 
@@ -31,6 +31,7 @@ typedef void (^ZXSDKAuthTokenCallback)(NSString *_Nullable token, NSError *_Null
 @property (nonatomic, copy, nullable) NSString *openid;
 @property (nonatomic, copy, nullable) NSArray *tags;
 
+@property (nonatomic, assign) NSInteger ot;
 @property (nonatomic, copy, nullable) NSString *aaid;
 @property (nonatomic, copy, nullable) NSString *vaid;
 @end
@@ -60,18 +61,18 @@ typedef void (^ZXSDKAuthTokenCallback)(NSString *_Nullable token, NSError *_Null
 - (void)getTag:(ZXSDKAidInfoCallback _Nonnull)callback;
 
 /// 读取卓信ID开关
-- (BOOL)enable;
+- (BOOL)enable DEPRECATED_MSG_ATTRIBUTE("默认返回YES");
 
 /// 设置卓信ID开关
 /// @param enable YES:打开（默认）   NO:关闭
 - (void)setEnable:(BOOL)enable;
 
 /// 设置是否提示权限弹窗
-/// @param allow  YES:提示（默认）   NO:不提示
+/// @param allow  YES:提示   NO:不提示（默认）
 - (void)allowPermissionDialog:(BOOL)allow;
 
 /// 读取卓信是否允许弹窗
-- (BOOL)isAllowPermissionDialog;
+- (BOOL)isAllowPermissionDialog DEPRECATED_MSG_ATTRIBUTE("默认返回NO");
 
 /// sdk版本号
 - (NSString * _Nonnull)version;
@@ -105,18 +106,18 @@ typedef void (^ZXSDKAuthTokenCallback)(NSString *_Nullable token, NSError *_Null
 + (void)getTag:(ZXSDKAidInfoCallback _Nonnull)callback;
 
 /// 读取卓信ID开关
-+ (BOOL)enable;
++ (BOOL)enable DEPRECATED_MSG_ATTRIBUTE("默认返回YES");
 
 /// 设置卓信ID开关
 /// @param enable YES:打开（默认）   NO:关闭
 + (void)setEnable:(BOOL)enable;
 
 /// 设置是否提示权限弹窗
-/// @param allow  YES:提示（默认）   NO:不提示
+/// @param allow  YES:提示   NO:不提示（默认）
 + (void)allowPermissionDialog:(BOOL)allow;
 
 /// 读取卓信是否允许弹窗
-+ (BOOL)isAllowPermissionDialog;
++ (BOOL)isAllowPermissionDialog DEPRECATED_MSG_ATTRIBUTE("默认返回NO");
 
 /// sdk版本号
 + (NSString * _Nonnull)version;
