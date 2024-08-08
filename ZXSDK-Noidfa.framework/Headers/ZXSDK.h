@@ -3,7 +3,7 @@
 //  ZXSDK
 //
 //  Created by zx on 2021-03-10.
-//  ZXSDK-Version: 3.2.5.39379
+//  ZXSDK-Version: 3.2.6.46574
 
 #import <Foundation/Foundation.h>
 
