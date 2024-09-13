@@ -3,7 +3,7 @@
 //  ZXSDK
 //
 //  Created by zx on 2021-03-10.
-//  ZXSDK-Version: 3.2.6.46574
+//  ZXSDK-Version: 3.3.0.48486
 
 #import <Foundation/Foundation.h>
 
@@ -34,6 +34,7 @@ typedef void (^ZXSDKAuthTokenCallback)(NSString *_Nullable token, NSError *_Null
 @property (nonatomic, assign) NSInteger ot;
 @property (nonatomic, copy, nullable) NSString *aaid;
 @property (nonatomic, copy, nullable) NSString *vaid;
+@property (nonatomic, copy, nullable) NSString *taid;
 @end
 
 @protocol ZXSDKProtocol <NSObject>
