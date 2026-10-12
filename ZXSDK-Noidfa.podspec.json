@@ -18,7 +18,7 @@
     "ios": "8.0"
   },
   "ios": {
-    "vendored_frameworks": "ZXSDK-Noidfa.framework",
+    "vendored_frameworks": "ZXSDK-Noidfa.xcframework",
     "frameworks": [
       "Foundation",
       "UIKit"
